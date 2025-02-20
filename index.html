@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyper-meet</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .emotion-label {
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            margin-top: 5px;
+        }
+        #videoContainer {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 100px;
+            padding: 10px;
+        }
+        .video-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: #f9f9f9;
+        }
+        video {
+            width: 350px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .peer-id {
+            margin-top: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+        #localVideo {
+            border: 2px solid #007bff;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .heatmap-bar {
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(to right, #00ff00, #ff0000);
+            margin-top: 10px;
+            position: relative;
+        }
+        .heatmap-bar-fill {
+            height: 100%;
+            background-color: rgba(0, 0, 255, 0.5);
+            width: 0%;
+        }
+        .heatmap-bar-label {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hyper-meet</h1>
+    <button id="startCall">Start Call</button>
+    <div id="videoContainer">
+        <div class="video-wrapper" data-peer-id="local"> <!-- Add data-peer-id="local" -->
+            <video id="localVideo" autoplay playsinline></video>
+            <div class="peer-id">You (Local)</div>
+            <div id="localEmotion" class="emotion-label"></div>
+            <!-- Add heatmap bar for local video -->
+            <div class="heatmap-bar">
+                <div class="heatmap-bar-fill"></div>
+                <div class="heatmap-bar-label">0%</div>
+            </div>
+        </div>
+    </div>
+    <script src="client.js"></script>
+</body>
+</html>
