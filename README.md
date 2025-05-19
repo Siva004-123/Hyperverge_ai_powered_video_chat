@@ -1,6 +1,6 @@
 # Hyperverge AI Powered Video Chat
 
-This project is an AI-powered video chat application that incorporates real-time emotion detection (happy or sad) during video calls.
+This project is an AI-powered video chat application that incorporates real-time emotion detection (happy,sad etc) during video calls.
 
 ---
 
